@@ -183,8 +183,12 @@ jQuery(window).load(function() {
 
 						id = href.substring(1);
 						
-						if (id in panels)
+						if (id in panels) {
+							if (ga) {
+								ga('send', 'event', 'home', 'click', id);
+							}
 							panels[id].h5u_activate();
+						}
 					}
 				});
 			
