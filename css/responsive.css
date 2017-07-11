@@ -188,6 +188,10 @@ px      68    160    252    */
   #slider .block p {
     font-size: 13px;
   }
+  .links i {
+    font-size: 20px;
+    padding: 10px;
+  }
   /*--
 	wrapper Start 
 --*/
@@ -384,7 +388,10 @@ px      68    160    252    */
 	footer Start 
 --*/
   footer .footer-manu {
-    display: none;
+    font-size: 20px;
+  }
+  footer .footer-manu ul li {
+    padding: 0 10px;
   }
 }
 /*		Wide Mobile Layout: 480px.
