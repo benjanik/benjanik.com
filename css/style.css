@@ -812,3 +812,9 @@ footer .footer-manu ul li a:hover {
   color: #ccc;
   padding: 20px;
 }
+
+#hero-subtitle {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 8px;
+  font-weight: 600;
+}

@@ -27,6 +27,18 @@
 
     <script src="js/main.js"></script>
 
+    <script>
+        function monthDiff(d1, d2) {
+            let months;
+            months = (d2.getFullYear() - d1.getFullYear()) * 12;
+            months -= d1.getMonth() + 1;
+            months += d2.getMonth();
+            return months <= 0 ? 0 : months;
+        }
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+    </script>
 
 </head>
 <body>
@@ -37,7 +49,7 @@
         <div class="row">
             <div class="block">
                 <h1 class="animated fadeInUp">Ben Janik</h1>
-                <p class="animated fadeInUp">Software Engineer in San Francisco</p>
+                <p class="animated fadeInUp">Director of Engineering at <a id="hero-subtitle" href="https://beautiful.ai">Beautiful.ai</a> in San Francisco</p>
             </div>
             <div class="block links animated fadeInDown">
                 <ul>
@@ -60,7 +72,7 @@
                 <div class="block">
                     <div class="section-title">
                         <h2>About Me</h2>
-                        <p>I'm a professional software engineer in San Francisco, currently working on <a href="https://www.beautiful.ai">Beautiful Slides</a>. Previously, I've worked on a financial trading platform with Mirror Labs, and a leading cloud data warehouse platform with Birst. Outside of work, I like to hang out with my husky, ski, hike, bicycle, make music, listen to music, and enjoy the finer things.</p>
+                        <p>I'm an engineering leader and professional software engineer in San Francisco, currently leading product and engineering for <a href="https://www.beautiful.ai">Beautiful.ai</a>, which solves the major problems with current presentation software. I have previously worked on a financial trading platform and an industry leading business intelligence reporting tool. Outside of work, I like to ski, climb, hike, bicycle, hang out with my dog, eat, drink, make music, listen to music, and enjoy the finer things.</p>
                     </div>
                 </div>
             </div><!-- .col-md-7 close -->
@@ -124,7 +136,7 @@
                 <div class="section-title">
                     <h2>Skills that pay the bills</h2>
                 </div>
-                <p>JavaScript / React / Angular / RxJS / Backbone / jQuery / lodash / Python / Haskell / Clojure / ClojureScript / CSS / Sass / HTML5 / Jasmine / Karma / npm / webpack / babel / SQL / mongo / Firebase / web applications / architecture / performance / data visualization / analytics / UX design / rapid prototyping</p>
+                <p>JavaScript / SVG / Data Viz / GCP / React / Angular / Backbone / Python / Haskell / Clojure / ClojureScript / CSS / Sass / HTML5 / Jasmine / Karma / webpack / babel / SQL / Firebase / web applications / architecture / performance / analytics / UX design / rapid prototyping</p>
             </div>
         </div>
     </div>
@@ -138,7 +150,7 @@
                 <h2>Fun Facts</h2>
             </div>
         </div>
-        <div class="row ">
+        <div class="row">
             <div class="col-sm-6 col-md-4">
                 <div class="service-item">
                     <i class="icon ion-coffee"></i>
@@ -157,11 +169,11 @@
                 <div class="service-item">
                     <i class="ion-image"></i>
                     <h4>Skiing</h4>
-                    <p>I love sliding down mountains on snow</p>
+                    <p>I'm a way better skier than you #squallywood</p>
                 </div>
             </div>
         </div>
-        <div class="row ">
+        <div class="row">
             <div class="col-sm-6 col-md-4">
                 <div class="service-item">
                     <i class="ion-headphone"></i>
@@ -173,14 +185,18 @@
                 <div class="service-item">
                     <i class="ion-ios-paw"></i>
                     <h4>My Dog</h4>
-                    <p>I have a 2 year old husky</p>
+                    <p id="husky-age"></p>
+                    <script>
+                        const huskyAge = monthDiff(new Date(1442130217650), new Date()) / 12;
+                        document.getElementById("husky-age").innerText = `I have a ${huskyAge.toFixed(1)} year old husky`;
+                    </script>
                 </div>
             </div>
             <div class="col-sm-6 col-md-4">
                 <div class="service-item">
                     <i class="ion-earth"></i>
                     <h4>Traveling</h4>
-                    <p>Love to visit new places and return to favorites. Next up: Patagonia, then Japan!</p>
+                    <p>Love to visit new places and return to favorites. Next up: NYC and Vietnam. Recently: Patagonia and Japan.</p>
                 </div>
             </div>
         </div>
@@ -193,8 +209,8 @@
             <div class="col-md-12">
                 <div class="block">
                     <h2>Hit Me Up!</h2>
-                    <p>I am available for consulting work and prototype web-application development.</p>
-                    <a class="btn btn-default btn-call-to-action" href="mailto:ben@benjanik.com" >Send an email</a>
+                    <p>I am available for consulting work and prototype web application development. I can provide you with scalable infrastructure and an MVP quickly and affordably.</p>
+                    <a class="btn btn-default btn-call-to-action" href="mailto:ben@benjanik.com">Send an email</a>
                 </div>
             </div>
         </div>
@@ -215,30 +231,34 @@
                         <li>
                             <div class="block">
                                 <i class="ion-coffee"></i>
-                                <h4 class="counter">7500</h4>
+                                <h4 class="counter">12,000</h4>
                                 <span>Cups Of Coffee Drank</span>
                             </div>
                         </li>
                         <li>
                             <div class="block">
                                 <i class="ion-earth"></i>
-                                <h4 class="counter">21</h4>
+                                <h4 class="counter">23</h4>
                                 <span>Countries Visited</span>
                             </div>
                         </li>
                         <li>
                             <div class="block">
                                 <i class="ion-android-bicycle"></i>
-                                <h4 class="counter">6000</h4>
+                                <h4 class="counter">8,000</h4>
                                 <span>Miles Biked</span>
                             </div>
                         </li>
                         <li>
                             <div class="block">
                                 <i class="ion-pizza"></i>
-                                <h4 class="counter">25000000</h4>
+                                <h4 class="counter" id="calories"></h4>
                                 <span>Calories Consumed</span>
                             </div>
+                            <script>
+                                const calories = 2400 * monthDiff(new Date(553330800000), new Date()) * 30;
+                                document.getElementById("calories").innerText = numberWithCommas(Math.round(calories));
+                            </script>
                         </li>
 
                     </ul>
@@ -252,7 +272,7 @@
                             <p>"I like him, you probably will too."</p>
                             <div class="user">
                                 <img src="img/ani.png" alt="Ani">
-                                <p><span>Ani Soghomonyan</span>girlfriend</p>
+                                <p><span>Ani Soghomonyan</span>fiancée</p>
                             </div>
                         </div>
                         <div>
