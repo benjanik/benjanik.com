@@ -1,6 +1,6 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
-@import url(http://fonts.googleapis.com/css?family=Volkhov:400italic);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
+@import url(https://fonts.googleapis.com/css?family=Volkhov:400italic);
 /* var text-decoration */
 /*--
 	Common Css
@@ -33,6 +33,9 @@ ul {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+a {
+  color: #2a6496;
 }
 a,
 a:active,
@@ -139,7 +142,7 @@ font header .navbar-default .navbar-nav li a:hover {
   margin: 0;
 }
 #intro .block p {
-  color: #7B7B7B;
+  color: #666;
   padding-top: 20px;
 }
 #intro .block img {
@@ -169,10 +172,10 @@ font header .navbar-default .navbar-nav li a:hover {
 #service .service-item h4 {
   padding-top: 20px;
   margin: 0;
-  color: #666;
+  color: #555;
 }
 #service .service-item p {
-  color: #888;
+  color: #666;
   padding-top: 10px;
   margin: 0;
   font-size: 14px;

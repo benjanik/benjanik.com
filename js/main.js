@@ -1,50 +1,54 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+            navigator.serviceWorker.register('/sw.js').then(function (registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function (err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
 
-	$("#portfolio-contant-active").mixItUp();
+    $("#portfolio-contant-active").mixItUp();
 
+    $("#testimonial-slider").owlCarousel({
+        paginationSpeed: 500,
+        singleItem: true,
+        autoPlay: 3000,
+    });
 
-	$("#testimonial-slider").owlCarousel({
-	    paginationSpeed : 500,      
-	    singleItem:true,
-	    autoPlay: 3000,
-	});
+    $("#clients-logo").owlCarousel({
+        autoPlay: 3000,
+        items: 5,
+        itemsDesktop: [1199, 5],
+        itemsDesktopSmall: [979, 5],
+    });
 
+    $("#works-logo").owlCarousel({
+        autoPlay: 3000,
+        items: 5,
+        itemsDesktop: [1199, 5],
+        itemsDesktopSmall: [979, 5],
+    });
 
+    // google map
+    var map;
 
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 8
+        });
+    }
 
-	$("#clients-logo").owlCarousel({
-		autoPlay: 3000,
-		items : 5,
-		itemsDesktop : [1199,5],
-		itemsDesktopSmall : [979,5],
-	});
-
-	$("#works-logo").owlCarousel({
-		autoPlay: 3000,
-		items : 5,
-		itemsDesktop : [1199,5],
-		itemsDesktopSmall : [979,5],
-	});
-
-
-	// google map
-		var map;
-		function initMap() {
-		  map = new google.maps.Map(document.getElementById('map'), {
-		    center: {lat: -34.397, lng: 150.644},
-		    zoom: 8
-		  });
-		}
-
-
-	// Counter
-
-	$('.counter').counterUp({
+    // Counter
+    $('.counter').counterUp({
         delay: 10,
         time: 1000
     });
-
 
 });
 
