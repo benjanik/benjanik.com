@@ -817,7 +817,8 @@ footer .footer-manu ul li a:hover {
 }
 
 #hero-subtitle {
-  background: rgba(0, 0, 0, 0.4);
+  background: white;
   padding: 8px;
   font-weight: 600;
+  border-radius: 4px;
 }
